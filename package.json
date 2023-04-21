@@ -1,0 +1,29 @@
+{
+  "name": "vite-template-solid",
+  "version": "0.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "test": "vitest"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@types/testing-library__jest-dom": "^5.14.5",
+    "jsdom": "^21.1.1",
+    "@solidjs/testing-library": "^0.7.0",
+    "typescript": "^5.0.4",
+    "vite": "^4.2.2",
+    "vite-plugin-solid": "^2.7.0",
+    "vitest": "^0.22.1"
+  },
+  "dependencies": {
+    "@suid/material": "^0.12.0",
+    "solid-js": "1.7.3",
+    "vi-fetch": "^0.8.0"
+  }
+}
