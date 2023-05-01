@@ -17,12 +17,12 @@
     "jsdom": "^21.1.1",
     "@solidjs/testing-library": "^0.7.0",
     "typescript": "^5.0.4",
-    "vite": "^4.2.2",
+    "vite": "^4.3.3",
     "vite-plugin-solid": "^2.7.0",
     "vitest": "^0.22.1"
   },
   "dependencies": {
-    "@suid/material": "^0.12.0",
+    "@suid/material": "^0.12.1",
     "solid-js": "1.7.3",
     "vi-fetch": "^0.8.0"
   }
