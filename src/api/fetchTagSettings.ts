@@ -8,7 +8,7 @@ import {
   setTagSettings,
 } from "../signal";
 
-export const fetchImages = async () => {
+export const fetchTagSettings = async () => {
   const load = async (): Promise<void> => {
     const data: TagSetting[] | ErrorResponse = await getApiData(
       `${baseUri}/tagSettings`

@@ -19,12 +19,13 @@ const getUniqueServices = (data: UriSetting[]) => {
   return [...new Set(tempSetting)];
 };
 // Local API or Remote API
-const local = 1;
+export const fetchLocal = 1;
+export const fetchRemote = 2;
 
-export const fetchImages = async (api: number) => {
+export const fetchUriSettings = async (api: number) => {
   const load = async (): Promise<void> => {
     const data: UriSetting[] | ErrorResponse = await getApiData(
-      `${api === local ? baseUri : remoteBaseUri}/uriSettings`
+      `${api === fetchLocal ? baseUri : remoteBaseUri}/uriSettings`
     );
     if (
       typeof data === "object" &&
@@ -32,7 +33,7 @@ export const fetchImages = async (api: number) => {
       typeof (data as ErrorResponse).message === "string"
     ) {
       // 戻り値がエラーメッセージの場合
-      if (api === local) {
+      if (api === fetchLocal) {
         setServices(undefined);
         setUriSettings(undefined);
       } else {
@@ -47,7 +48,7 @@ export const fetchImages = async (api: number) => {
       setMessageSeverity("error");
       return;
     }
-    if (api === local) {
+    if (api === fetchLocal) {
       setUriSettings(data as UriSetting[]);
       setServices(getUniqueServices(data as UriSetting[]));
     } else {
