@@ -10,9 +10,7 @@ import TableHead from "@suid/material/TableHead";
 import TableRow from "@suid/material/TableRow";
 import Typography from "@suid/material/Typography";
 import { openUriInNewTab } from "../openUri";
-import {
-  tagSettings,
-} from "../signal";
+import { tagSettings } from "../signal";
 
 const convertEnvironmentName = (environmentName: string) => {
   switch (environmentName) {
@@ -22,7 +20,7 @@ const convertEnvironmentName = (environmentName: string) => {
       return "本番";
   }
   return environmentName;
-}
+};
 
 export const TagSettingList = () => {
   const headerTitle = localStorage.getItem("tagSettingsHeaderTitle");
@@ -39,9 +37,7 @@ export const TagSettingList = () => {
         }}
         aria-live="polite"
       >
-        <Typography variant="h3">
-          {headerTitle}
-        </Typography>
+        <Typography variant="h3">{headerTitle}</Typography>
         <Show
           when={tagSettings() !== null}
           fallback={
@@ -55,9 +51,7 @@ export const TagSettingList = () => {
               <TableHead>
                 <TableRow>
                   <TableCell>設定</TableCell>
-                  <TableCell>
-                    リリース対象イメージタグ
-                  </TableCell>
+                  <TableCell>リリース対象イメージタグ</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -70,12 +64,17 @@ export const TagSettingList = () => {
                           size="small"
                           color="primary"
                           onClick={() => {
-                            openUriInNewTab(`${uriPrefix}${settingItem.environment_name}${uriSuffix}`);
+                            openUriInNewTab(
+                              `${uriPrefix}${settingItem.environment_name}${uriSuffix}`
+                            );
                           }}
                           sx={{ textTransform: "none" }}
-                          title={`${convertEnvironmentName(settingItem.environment_name)}環境のリリース設定画面を開く`}
+                          title={`${convertEnvironmentName(
+                            settingItem.environment_name
+                          )}環境のリリース設定画面を開く`}
                         >
-                          {convertEnvironmentName(settingItem.environment_name)}環境設定
+                          {convertEnvironmentName(settingItem.environment_name)}
+                          環境設定
                         </Button>
                       </TableCell>
                       <TableCell>{settingItem.tags.join(", ")}</TableCell>
