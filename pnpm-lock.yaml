@@ -1,6 +1,9 @@
 lockfileVersion: '6.0'
 
 dependencies:
+  '@suid/icons-material':
+    specifier: ^0.6.1
+    version: 0.6.1(solid-js@1.7.4)
   '@suid/material':
     specifier: ^0.12.1
     version: 0.12.1(solid-js@1.7.4)
@@ -698,6 +701,15 @@ packages:
 
   /@suid/css@0.3.0:
     resolution: {integrity: sha512-B7eXNEqGWTF9rd8VNZItaVjUvJ4e34DjGZqMaBBSu4UxqJwYJ0J0NTQEVRzCtHmjHaqEuMc9llYCT7cmamhA8g==}
+    dev: false
+
+  /@suid/icons-material@0.6.1(solid-js@1.7.4):
+    resolution: {integrity: sha512-JtXRjqFrfCJyRIf9OJG1RtdtKgzNm8bRfnoSAV0IeX/ilf4U0QzFrU4+xY5tYssRrhnOm2+jPCETzh2/ac7JEA==}
+    peerDependencies:
+      solid-js: ^1.7.3
+    dependencies:
+      '@suid/material': 0.12.1(solid-js@1.7.4)
+      solid-js: 1.7.4
     dev: false
 
   /@suid/material@0.12.1(solid-js@1.7.4):

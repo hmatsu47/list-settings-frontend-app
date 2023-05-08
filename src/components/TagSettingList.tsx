@@ -23,6 +23,15 @@ const convertEnvironmentName = (environmentName: string) => {
   return environmentName;
 };
 
+const buttonColor = (environmentName: string) => {
+  const colors = localStorage.getItem("tagButtonColor");
+  if (!colors) {
+    return "#616161";
+  }
+  const map = new Map<string, string>(Object.entries(JSON.parse(colors)));
+  return map.get(environmentName) ?? "#616161";
+};
+
 export const TagSettingList = () => {
   const headerTitle = localStorage.getItem("tagSettingsHeaderTitle");
   const uriPrefix = localStorage.getItem("tagSettingUriPrefix");
@@ -64,13 +73,18 @@ export const TagSettingList = () => {
                           <Button
                             variant="contained"
                             size="small"
-                            color="primary"
+                            // color="primary"
                             onClick={() => {
                               openUriInNewTab(
                                 `${uriPrefix}${settingItem.environment_name}${uriSuffix}`
                               );
                             }}
-                            sx={{ textTransform: "none" }}
+                            sx={{
+                              textTransform: "none",
+                              backgroundColor: `${buttonColor(
+                                settingItem.environment_name
+                              )}`,
+                            }}
                             title={`${convertEnvironmentName(
                               settingItem.environment_name
                             )}環境のリリース設定画面を開く`}

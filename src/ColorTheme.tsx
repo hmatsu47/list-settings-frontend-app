@@ -6,12 +6,12 @@ export const ColorTheme = createTheme({
     primary: {
       main: localStorage.getItem("primaryColor")
         ? (localStorage.getItem("primaryColor") as string)
-        : grey[900],
+        : grey[700],
     },
     secondary: {
       main: localStorage.getItem("secondaryColor")
         ? (localStorage.getItem("secondaryColor") as string)
-        : blueGrey[900],
+        : blueGrey[700],
     },
   },
 });

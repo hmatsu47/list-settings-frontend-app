@@ -1,8 +1,9 @@
 import { For, Show } from "solid-js";
-import Box from "@suid/material/Box";
 import Button from "@suid/material/Button";
+import IconButton from "@suid/material/IconButton";
 import TableCell from "@suid/material/TableCell";
 import TableRow from "@suid/material/TableRow";
+import InfoIcon from "@suid/icons-material/Info";
 import { service } from "../signal";
 import { formatDateTimeDisplay } from "../formatDateTime";
 import { UriSetting } from "../type";
@@ -16,6 +17,15 @@ const convertEnvironmentName = (environmentName: string) => {
       return "本番";
   }
   return environmentName;
+};
+
+const buttonColor = (environmentName: string) => {
+  const colors = localStorage.getItem("uriButtonColor");
+  if (!colors) {
+    return "#616161";
+  }
+  const map = new Map<string, string>(Object.entries(JSON.parse(colors)));
+  return map.get(environmentName) ?? "#616161";
 };
 
 type Props = {
@@ -36,13 +46,18 @@ export const UriSettingListParts = (props: Props) => {
                 <Button
                   variant="contained"
                   size="small"
-                  color="primary"
+                  // color="primary"
                   onClick={() => {
                     openUriInNewTab(
                       `${uriPrefix}${settingItem.environment_name}${uriSuffix}`
                     );
                   }}
-                  sx={{ textTransform: "none" }}
+                  sx={{
+                    textTransform: "none",
+                    backgroundColor: `${buttonColor(
+                      settingItem.environment_name
+                    )}`,
+                  }}
                   title={`${convertEnvironmentName(
                     settingItem.environment_name
                   )}環境のリリース設定画面を開く`}
@@ -57,6 +72,24 @@ export const UriSettingListParts = (props: Props) => {
                   : settingItem.last_released
                   ? `前回：${settingItem.last_released.image_uri}`
                   : "（未設定）"}
+                <Show
+                  when={settingItem.next_release && settingItem.last_released}
+                  fallback={<></>}
+                >
+                  <IconButton
+                    size="small"
+                    color="primary"
+                    aria-label="info"
+                    component="span"
+                    title={`前回：${
+                      settingItem.last_released.image_uri
+                    } | ${formatDateTimeDisplay(
+                      new Date(settingItem.last_released.released_at)
+                    )}`}
+                  >
+                    <InfoIcon sx={{ fontSize: "medium" }} />
+                  </IconButton>
+                </Show>
               </TableCell>
               <TableCell>
                 {settingItem.next_release
