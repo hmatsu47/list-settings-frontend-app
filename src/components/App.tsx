@@ -5,6 +5,7 @@ import { ThemeProvider } from "@suid/material";
 import { ColorTheme } from "../ColorTheme";
 import { Message } from "./Message";
 import { TitleBar } from "./TitleBar";
+import { SettingList } from "./SettingList";
 
 export const App: Component = () => {
   return (
@@ -22,6 +23,7 @@ export const App: Component = () => {
       >
         <Stack spacing={2} direction="column">
           <Message />
+          <SettingList />
         </Stack>
       </Box>
     </ThemeProvider>

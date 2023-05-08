@@ -1,4 +1,6 @@
 import { onMount } from "solid-js";
+import Box from "@suid/material/Box";
+import Stack from "@suid/material/Stack";
 import {
   fetchLocal,
   fetchRemote,
@@ -6,10 +8,10 @@ import {
 } from "../api/fetchUriSettings";
 import { fetchTagSettings } from "../api/fetchTagSettings";
 import { tagSettings, uriSettings, uriRemoteSettings } from "../signal";
-import { ServiceSelector } from "./ServiceSelector";
 import { TagSettingList } from "./TagSettingList";
+import { UriSettingList } from "./UriSettingList";
 
-export const ImageList = () => {
+export const SettingList = () => {
   onMount(() => {
     if (uriSettings() == undefined) {
       fetchUriSettings(fetchLocal);
@@ -23,9 +25,19 @@ export const ImageList = () => {
   });
 
   return (
-    <>
-      <ServiceSelector />
+    <Stack spacing={2} direction="column">
+      <UriSettingList />
+      <Box
+        sx={{
+          padding: "10px 10px 0 10px",
+          width: "100%",
+          minWidth: "1024px",
+          display: "flex",
+          // justifyContent: "center",
+        }}
+        aria-live="polite"
+      />
       <TagSettingList />
-    </>
+    </Stack>
   );
 };

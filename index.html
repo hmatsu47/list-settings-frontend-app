@@ -13,8 +13,14 @@
 
     <script src="/src/index.tsx" type="module"></script>
     <script>
+      localStorage.setItem("baseUri", "http://example.com/api");
       localStorage.setItem("remoteBaseUri", "http://remote.example.com/api");
-      localStorage.setItem("remoteBaseUriTag", "http://remote.example.com/api");
+      localStorage.setItem("uriSettingsHeaderTitle", "URI設定一覧");
+      localStorage.setItem("uriSettingUriPrefix", "http://");
+      localStorage.setItem("uriSettingUriSuffix", "-release.example.com");
+      localStorage.setItem("tagSettingsHeaderTitle", "タグ設定一覧");
+      localStorage.setItem("tagSettingUriPrefix", "http://tag-");
+      localStorage.setItem("tagSettingUriSuffix", ".example.com");
       localStorage.setItem("primaryColor", "#616161");
       localStorage.setItem("secondaryColor", "#455a64");
     </script>
