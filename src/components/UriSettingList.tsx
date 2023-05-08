@@ -52,9 +52,18 @@ export const UriSettingList = () => {
                 <Table aria-label="simple table">
                   <TableHead>
                     <TableRow>
-                      <TableCell>設定</TableCell>
-                      <TableCell>イメージURI</TableCell>
-                      <TableCell>リリース日時</TableCell>
+                      <TableCell>
+                        設定
+                        {"　".repeat(8)}
+                      </TableCell>
+                      <TableCell>
+                        イメージURI
+                        {"　".repeat(40)}
+                      </TableCell>
+                      <TableCell>
+                        リリース日時
+                        {"　".repeat(6)}
+                      </TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>

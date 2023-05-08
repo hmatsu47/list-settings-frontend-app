@@ -61,8 +61,14 @@ export const TagSettingList = () => {
               <Table aria-label="simple table">
                 <TableHead>
                   <TableRow>
-                    <TableCell>設定</TableCell>
-                    <TableCell>リリース対象イメージタグ</TableCell>
+                    <TableCell>
+                      設定
+                      {"　".repeat(8)}
+                    </TableCell>
+                    <TableCell>
+                      リリース対象イメージタグ
+                      {"　".repeat(48)}
+                    </TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
