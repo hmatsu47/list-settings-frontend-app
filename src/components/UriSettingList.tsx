@@ -54,7 +54,7 @@ export const UriSettingList = () => {
                     <TableRow>
                       <TableCell>
                         設定
-                        {"　".repeat(8)}
+                        {"　".repeat(10)}
                       </TableCell>
                       <TableCell>
                         イメージURI

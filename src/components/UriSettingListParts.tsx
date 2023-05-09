@@ -3,6 +3,7 @@ import Button from "@suid/material/Button";
 import IconButton from "@suid/material/IconButton";
 import TableCell from "@suid/material/TableCell";
 import TableRow from "@suid/material/TableRow";
+import Typography from "@suid/material/Typography";
 import InfoIcon from "@suid/icons-material/Info";
 import { service } from "../signal";
 import { formatDateTimeDisplay } from "../formatDateTime";
@@ -67,40 +68,49 @@ export const UriSettingListParts = (props: Props) => {
                 </Button>
               </TableCell>
               <TableCell>
-                {settingItem.next_release
-                  ? `次回：${settingItem.next_release.image_uri}`
-                  : settingItem.last_released
-                  ? `前回：${settingItem.last_released.image_uri}`
-                  : "（未設定）"}
-                <Show
-                  when={settingItem.next_release && settingItem.last_released}
-                  fallback={<></>}
+                <Typography
+                  sx={{ fontFamily: "monospace", fontSize: "0.8rem" }}
                 >
-                  <IconButton
-                    size="small"
-                    color="primary"
-                    aria-label="info"
-                    component="span"
-                    title={`前回：${
-                      settingItem.last_released.image_uri
-                    } | ${formatDateTimeDisplay(
-                      new Date(settingItem.last_released.released_at)
-                    )}`}
+                  {settingItem.next_release
+                    ? `次回：${settingItem.next_release.image_uri}`
+                    : settingItem.last_released
+                    ? `前回：${settingItem.last_released.image_uri}`
+                    : "（未設定）"}
+                  <Show
+                    when={settingItem.next_release && settingItem.last_released}
+                    fallback={<></>}
                   >
-                    <InfoIcon sx={{ fontSize: "medium" }} />
-                  </IconButton>
-                </Show>
+                    <IconButton
+                      size="small"
+                      color="primary"
+                      sx={{ padding: "3px", verticalAlign: "top" }}
+                      aria-label="info"
+                      component="span"
+                      title={`前回：${
+                        settingItem.last_released.image_uri
+                      } | ${formatDateTimeDisplay(
+                        new Date(settingItem.last_released.released_at)
+                      )}`}
+                    >
+                      <InfoIcon sx={{ fontSize: "medium" }} />
+                    </IconButton>
+                  </Show>
+                </Typography>
               </TableCell>
               <TableCell>
-                {settingItem.next_release
-                  ? `次回：${formatDateTimeDisplay(
-                      new Date(settingItem.next_release.release_at)
-                    )}`
-                  : settingItem.last_released
-                  ? `前回：${formatDateTimeDisplay(
-                      new Date(settingItem.last_released.released_at)
-                    )}`
-                  : "（未設定）"}
+                <Typography
+                  sx={{ fontFamily: "monospace", fontSize: "0.8rem" }}
+                >
+                  {settingItem.next_release
+                    ? `次回：${formatDateTimeDisplay(
+                        new Date(settingItem.next_release.release_at)
+                      )}`
+                    : settingItem.last_released
+                    ? `前回：${formatDateTimeDisplay(
+                        new Date(settingItem.last_released.released_at)
+                      )}`
+                    : "（未設定）"}
+                </Typography>
               </TableCell>
             </TableRow>
           </Show>

@@ -63,7 +63,7 @@ export const TagSettingList = () => {
                   <TableRow>
                     <TableCell>
                       設定
-                      {"　".repeat(8)}
+                      {"　".repeat(10)}
                     </TableCell>
                     <TableCell>
                       リリース対象イメージタグ
@@ -101,7 +101,13 @@ export const TagSettingList = () => {
                             環境設定
                           </Button>
                         </TableCell>
-                        <TableCell>{settingItem.tags.join(", ")}</TableCell>
+                        <TableCell>
+                          <Typography
+                            sx={{ fontFamily: "monospace", fontSize: "0.8rem" }}
+                          >
+                            {settingItem.tags.join(", ")}
+                          </Typography>
+                        </TableCell>
                       </TableRow>
                     )}
                   </For>

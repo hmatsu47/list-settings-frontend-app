@@ -13,19 +13,28 @@
 
     <script src="/src/index.tsx" type="module"></script>
     <script>
-      localStorage.setItem("baseUri", "http://example.com/api");
-      localStorage.setItem("remoteBaseUri", "http://remote.example.com/api");
-      localStorage.setItem("uriSettingsHeaderTitle", "URI設定一覧");
+      localStorage.setItem("baseUri", "/api");
+      localStorage.setItem(
+        "remoteBaseUri",
+        "http://list-release-setting-prod-api.mykomon.local/api"
+      );
+      localStorage.setItem(
+        "uriSettingsHeaderTitle",
+        "各環境のリリース設定一覧"
+      );
       localStorage.setItem("uriSettingUriPrefix", "http://");
-      localStorage.setItem("uriSettingUriSuffix", "-release.example.com");
-      localStorage.setItem("tagSettingsHeaderTitle", "タグ設定一覧");
-      localStorage.setItem("tagSettingUriPrefix", "http://tag-");
-      localStorage.setItem("tagSettingUriSuffix", ".example.com");
+      localStorage.setItem("uriSettingUriSuffix", "-release.mykomon.local");
+      localStorage.setItem(
+        "tagSettingsHeaderTitle",
+        "Postfixコンテナのリリース設定一覧"
+      );
+      localStorage.setItem("tagSettingUriPrefix", "http://postfix-");
+      localStorage.setItem("tagSettingUriSuffix", ".mykomon.local");
       localStorage.setItem("primaryColor", "#616161");
       localStorage.setItem("secondaryColor", "#455a64");
       localStorage.setItem(
         "uriButtonColor",
-        '{"test":"#2c387e","prod":"#e91e63"}'
+        '{"test":"#2c387e","test2":"#3f51b5","test3":"#6573c3","manual":"#b23c17","stg":"#00695f","business":"#ff5722","prod":"#e91e63"}'
       );
       localStorage.setItem(
         "tagButtonColor",
