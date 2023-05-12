@@ -69,6 +69,15 @@ describe("<TagSettingList />", () => {
         const text = (await findByText(environment)) as HTMLElement;
         expect(text).toHaveTextContent(environment);
       });
+      // 各タグ
+      if (testCase.settings) {
+        testCase.settings.forEach((setting) => {
+          setting.tags.forEach(async (tag) => {
+            const text = (await findByText(tag)) as HTMLElement;
+            expect(text).toHaveTextContent(tag);
+          });
+        });
+      }
       unmount();
     });
   });
