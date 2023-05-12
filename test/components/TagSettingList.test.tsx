@@ -3,7 +3,6 @@ import { render } from "@solidjs/testing-library";
 import { formatSnapshot } from "../common/formatSnapshot";
 import { TagSettingList } from "../../src/components/TagSettingList";
 import { setTagSettings } from "../../src/signal";
-import { TagSetting } from "../../src/type";
 
 describe("<TagSettingList />", () => {
   const tagSettingList = [
