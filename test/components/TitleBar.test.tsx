@@ -7,12 +7,6 @@ import { fireEvent, render } from "@solidjs/testing-library";
 import { formatSnapshot } from "../common/formatSnapshot";
 import { TitleBar } from "../../src/components/TitleBar";
 import { baseUri, remoteBaseUri } from "../../src/api/apiHandler";
-import { fetchTagSettings } from "../../src/api/fetchTagSettings";
-import {
-  fetchLocal,
-  fetchRemote,
-  fetchUriSettings,
-} from "../../src/api/fetchUriSettings";
 import {
   LastReleased,
   NextRelease,
