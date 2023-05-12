@@ -39,7 +39,7 @@ describe("fetchUriSettings", () => {
     {
       api: fetchRemote,
       baseUrl: "",
-      remoteBaseUrl: "/http://remote.example.com/api",
+      remoteBaseUrl: "http://remote.example.com/api",
       environment_name: "prod",
       last_released: null,
       next_release: {

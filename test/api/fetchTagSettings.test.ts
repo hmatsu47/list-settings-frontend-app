@@ -24,7 +24,7 @@ describe("fetchTagSettings", () => {
       tags: ["latest", "hogafuga"],
     },
     {
-      baseUrl: "/http://example.com/api",
+      baseUrl: "http://example.com/api",
       environment_name: "prod",
       tags: ["release", "testtest"],
     },
