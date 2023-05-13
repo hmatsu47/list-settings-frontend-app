@@ -12,8 +12,8 @@ export type NextRelease = {
 };
 export type UriSetting = {
   environment_name: string;
-  last_released: LastReleased;
-  next_release: NextRelease;
+  last_released: LastReleased | null;
+  next_release: NextRelease | null;
   service_name: string;
 };
 export type ErrorResponse = {

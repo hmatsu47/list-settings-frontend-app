@@ -87,9 +87,9 @@ export const UriSettingListParts = (props: Props) => {
                       aria-label="info"
                       component="span"
                       title={`前回：${
-                        settingItem.last_released.image_uri
+                        settingItem.last_released!.image_uri
                       } | ${formatDateTimeDisplay(
-                        new Date(settingItem.last_released.released_at)
+                        new Date(settingItem.last_released!.released_at)
                       )}`}
                     >
                       <InfoIcon sx={{ fontSize: "medium" }} />

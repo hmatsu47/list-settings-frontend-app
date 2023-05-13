@@ -21,8 +21,8 @@ describe("<Message />", () => {
     test(testCase.title, async () => {
       setMessage(testCase.message);
       setMessageSeverity(testCase.severity === "success" ? "success" : "error");
-      const { container, getByText, unmount } = render(() => <Message />);
-      const message = (await getByText(testCase.message)) as HTMLElement;
+      const { container, findByText, unmount } = render(() => <Message />);
+      const message = (await findByText(testCase.message)) as HTMLElement;
       expect(message).toHaveTextContent(testCase.message);
       // css の名前が動的に変わるので固定値に置換
       const html = formatSnapshot(container.innerHTML);

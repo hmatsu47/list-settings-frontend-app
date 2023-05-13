@@ -47,7 +47,7 @@ describe("<TagSettingList />", () => {
     localStorage.removeItem("selectedService");
   });
   tagSettingList.forEach((testCase) => {
-    test(testCase.title, async () => {
+    test(testCase.title, () => {
       if (testCase.colors) {
         localStorage.setItem("tagButtonColor", testCase.colors);
       }
@@ -55,27 +55,26 @@ describe("<TagSettingList />", () => {
       localStorage.setItem("tagSettingUriPrefix", testCase.uriPrefix);
       localStorage.setItem("tagSettingUriSuffix", testCase.uriSuffix);
       setTagSettings(testCase.settings);
-      const { container, findByText, unmount } = render(() => (
+      const { container, getByText, unmount } = render(() => (
         <TagSettingList />
       ));
       // css の名前が動的に変わるので固定値に置換
       const html = formatSnapshot(container.innerHTML);
       expect(html).toMatchSnapshot();
       // ヘッダータイトル
-      const headerTitle = (await findByText(testCase.header)) as HTMLElement;
+      const headerTitle = getByText(testCase.header) as HTMLElement;
       expect(headerTitle).toHaveTextContent(testCase.header);
       // 各ボタン（クリックしない）または「リポジトリにイメージがありません」
-      testCase.expected.forEach(async (environment) => {
-        const text = (await findByText(environment)) as HTMLElement;
+      testCase.expected.forEach((environment) => {
+        const text = getByText(environment) as HTMLElement;
         expect(text).toHaveTextContent(environment);
       });
       // 各タグ
       if (testCase.settings) {
         testCase.settings.forEach((setting) => {
-          setting.tags.forEach(async (tag) => {
-            const text = (await findByText(tag)) as HTMLElement;
-            expect(text).toHaveTextContent(tag);
-          });
+          const tags = setting.tags.join(", ");
+          const text = getByText(tags) as HTMLElement;
+          expect(text).toHaveTextContent(tags);
         });
       }
       unmount();
