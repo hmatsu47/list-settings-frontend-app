@@ -13,13 +13,13 @@ import { UriSettingList } from "./UriSettingList";
 
 export const SettingList = () => {
   onMount(() => {
-    if (uriSettings() == undefined) {
+    if (uriSettings() === undefined) {
       fetchUriSettings(fetchLocal);
     }
-    if (uriRemoteSettings() == undefined) {
+    if (uriRemoteSettings() === undefined) {
       fetchUriSettings(fetchRemote);
     }
-    if (tagSettings() == undefined) {
+    if (tagSettings() === undefined) {
       fetchTagSettings();
     }
   });

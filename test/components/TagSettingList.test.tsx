@@ -44,7 +44,10 @@ describe("<TagSettingList />", () => {
     localStorage.removeItem("tagSettingUriSuffix");
   });
   afterEach(() => {
-    localStorage.removeItem("selectedService");
+    localStorage.removeItem("tagButtonColor");
+    localStorage.removeItem("tagSettingsHeaderTitle");
+    localStorage.removeItem("tagSettingUriPrefix");
+    localStorage.removeItem("tagSettingUriSuffix");
   });
   tagSettingList.forEach((testCase) => {
     test(testCase.title, () => {

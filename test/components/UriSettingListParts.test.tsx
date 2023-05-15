@@ -186,12 +186,16 @@ describe("<UriSettingListParts />", () => {
     },
   ];
   beforeEach(() => {
+    localStorage.removeItem("selectedService");
     localStorage.removeItem("uriButtonColor");
     localStorage.removeItem("uriSettingUriPrefix");
     localStorage.removeItem("uriSettingUriSuffix");
   });
   afterEach(() => {
     localStorage.removeItem("selectedService");
+    localStorage.removeItem("uriButtonColor");
+    localStorage.removeItem("uriSettingUriPrefix");
+    localStorage.removeItem("uriSettingUriSuffix");
   });
   uriSettingList.forEach((testCase) => {
     test(testCase.title, () => {
