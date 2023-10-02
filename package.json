@@ -12,6 +12,7 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@solidjs/router": "^0.8.3",
     "@solidjs/testing-library": "^0.8.4",
     "@testing-library/jest-dom": "^5.17.0",
     "@types/testing-library__jest-dom": "^5.14.9",
@@ -23,7 +24,7 @@
   },
   "dependencies": {
     "@suid/icons-material": "^0.6.9",
-    "@suid/material": "^0.14.2",
+    "@suid/material": "^0.15.1",
     "solid-js": "1.7.12",
     "vi-fetch": "^0.8.0"
   }
