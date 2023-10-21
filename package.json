@@ -18,14 +18,14 @@
     "@types/testing-library__jest-dom": "^5.14.9",
     "jsdom": "^22.1.0",
     "typescript": "^5.2.2",
-    "vite": "^4.4.11",
-    "vite-plugin-solid": "^2.7.1",
+    "vite": "^4.5.0",
+    "vite-plugin-solid": "^2.7.2",
     "vitest": "^0.22.1"
   },
   "dependencies": {
     "@suid/icons-material": "^0.6.11",
     "@suid/material": "^0.15.1",
-    "solid-js": "1.8.1",
+    "solid-js": "1.8.3",
     "vi-fetch": "^0.8.0"
   }
 }
