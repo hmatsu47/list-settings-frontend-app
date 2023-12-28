@@ -12,8 +12,8 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@solidjs/router": "^0.10.1",
-    "@solidjs/testing-library": "^0.8.4",
+    "@solidjs/router": "^0.10.5",
+    "@solidjs/testing-library": "^0.8.5",
     "@testing-library/jest-dom": "^5.17.0",
     "@types/testing-library__jest-dom": "^5.14.9",
     "jsdom": "^23.0.1",
