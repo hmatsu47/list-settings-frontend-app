@@ -12,20 +12,20 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@solidjs/router": "^0.10.9",
-    "@solidjs/testing-library": "^0.8.5",
+    "@solidjs/router": "^0.11.3",
+    "@solidjs/testing-library": "^0.8.6",
     "@testing-library/jest-dom": "^5.17.0",
     "@types/testing-library__jest-dom": "^5.14.9",
     "jsdom": "^23.0.1",
     "typescript": "^5.3.3",
     "vite": "^4.5.0",
-    "vite-plugin-solid": "^2.8.0",
-    "vitest": "^0.22.1"
+    "vite-plugin-solid": "^2.9.1",
+    "vitest": "^0.22.1",
+    "vi-fetch": "^0.8.0"
   },
   "dependencies": {
     "@suid/icons-material": "^0.6.11",
     "@suid/material": "^0.15.1",
-    "solid-js": "1.8.11",
-    "vi-fetch": "^0.8.0"
+    "solid-js": "1.8.12"
   }
 }
