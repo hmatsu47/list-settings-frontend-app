@@ -1,6 +1,7 @@
 export type TagSetting = {
   environment_name: string;
   tags: string[];
+  pushed_at?: Date;
 };
 export type LastReleased = {
   image_uri: string;
