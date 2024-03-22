@@ -61,8 +61,16 @@ describe("<SettingList />", () => {
         } as UriSetting,
       ],
       tagSettings: [
-        { environment_name: "dev", tags: ["hogefuga", "latest"] } as TagSetting,
-        { environment_name: "prod", tags: ["release", "foobar"] } as TagSetting,
+        {
+          environment_name: "dev",
+          tags: ["hogefuga", "latest"],
+          pushed_at: new Date("2024-03-01T23:05:00+0900"),
+        } as TagSetting,
+        {
+          environment_name: "prod",
+          tags: ["release", "foobar"],
+          pushed_at: new Date("2024-01-01T23:05:00+0900"),
+        } as TagSetting,
       ],
       selectedService: undefined,
       expectedButtonLabel: null,
@@ -89,7 +97,7 @@ describe("<SettingList />", () => {
     },
     {
       title:
-        "サービス選択なし・URI形式両側のリポジトリにレコードなし・タグ形式リポジトリに1レコードあり",
+        "サービス選択なし・URI形式両側のリポジトリにレコードなし・タグ形式リポジトリに1レコードあり・2ヶ月以上古い",
       fetched: true,
       uriSettings: null,
       remoteSettings: null,
@@ -97,6 +105,7 @@ describe("<SettingList />", () => {
         {
           environment_name: "dev",
           tags: ["tag-hogefuga", "latest"],
+          pushed_at: new Date("2024-01-20T23:05:00+0900"),
         } as TagSetting,
       ],
       selectedService: undefined,
@@ -118,7 +127,7 @@ describe("<SettingList />", () => {
     },
     {
       title:
-        "サービス選択あり・URI形式両側のリポジトリにレコードあり・タグ形式リポジトリに1レコードあり",
+        "サービス選択あり・URI形式両側のリポジトリにレコードあり・タグ形式リポジトリに2レコードあり・うち1レコードが5ヶ月以上古い＝alert（error）",
       fetched: true,
       uriSettings: [
         {
@@ -155,8 +164,16 @@ describe("<SettingList />", () => {
         } as UriSetting,
       ],
       tagSettings: [
-        { environment_name: "dev", tags: ["hogefuga", "latest"] } as TagSetting,
-        { environment_name: "prod", tags: ["release", "foobar"] } as TagSetting,
+        {
+          environment_name: "dev",
+          tags: ["hogefuga", "latest"],
+          pushed_at: new Date("2024-03-01T23:05:00+0900"),
+        } as TagSetting,
+        {
+          environment_name: "prod",
+          tags: ["release", "foobar"],
+          pushed_at: new Date("2023-10-01T23:05:00+0900"),
+        } as TagSetting,
       ],
       selectedService: "test1",
       expectedButtonLabel: [
@@ -179,6 +196,7 @@ describe("<SettingList />", () => {
     },
   ];
   beforeEach(() => {
+    vi.useFakeTimers();
     // localStorage はモック化すべきかも（うまくいかなかったため一旦モックなしで実装）
     localStorage.setItem("baseUri", "/api");
     localStorage.setItem("remoteBaseUri", "http://remote.example.com/api");
@@ -196,6 +214,7 @@ describe("<SettingList />", () => {
     mockFetch.clearAll();
   });
   afterEach(() => {
+    vi.useRealTimers();
     vi.clearAllMocks();
     localStorage.removeItem("baseUri");
     localStorage.removeItem("remoteBaseUri");
@@ -211,6 +230,8 @@ describe("<SettingList />", () => {
   });
   settingList.forEach((testCase) => {
     test(testCase.title, () => {
+      const date = new Date("2024-03-22T23:05:00+0900");
+      vi.setSystemTime(date);
       const mockTag = mockGet(`${baseUri}/tagSettings`).willResolve(
         testCase.tagSettings
       );
