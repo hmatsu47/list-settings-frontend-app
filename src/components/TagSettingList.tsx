@@ -10,6 +10,8 @@ import TableContainer from "@suid/material/TableContainer";
 import TableHead from "@suid/material/TableHead";
 import TableRow from "@suid/material/TableRow";
 import Typography from "@suid/material/Typography";
+import ErrorOutlineOutlinedIcon from "@suid/icons-material/ErrorOutlineOutlined";
+import ReportProblemOutlinedIcon from "@suid/icons-material/ReportProblemOutlined";
 import { openUriInNewTab } from "../openUri";
 import { tagSettings } from "../signal";
 
@@ -30,6 +32,66 @@ const buttonColor = (environmentName: string) => {
   }
   const map = new Map<string, string>(Object.entries(JSON.parse(colors)));
   return map.get(environmentName) ?? "#616161";
+};
+
+const warningMessage = (pushedAt?: Date) => {
+  if (!pushedAt) {
+    return <></>;
+  }
+  const now = new Date();
+  // 5ヶ月以上前→警告
+  const alertLine = new Date(
+    now.getFullYear(),
+    now.getMonth() - 5,
+    now.getDate()
+  );
+  if (new Date(pushedAt) <= alertLine) {
+    return (
+      <>
+        <ErrorOutlineOutlinedIcon
+          color="error"
+          sx={{ padding: "2px", verticalAlign: "top", fontSize: "medium" }}
+        />
+        <Typography
+          color="darkred"
+          sx={{
+            fontFamily: "monospace",
+            fontSize: "0.8rem",
+            fontWeight: "bolder",
+          }}
+        >
+          プッシュから5か月以上経過しています
+        </Typography>
+      </>
+    );
+  }
+  // 2ヶ月以上前→注意
+  const warningLine = new Date(
+    now.getFullYear(),
+    now.getMonth() - 2,
+    now.getDate()
+  );
+  if (new Date(pushedAt) <= warningLine) {
+    return (
+      <>
+        <ReportProblemOutlinedIcon
+          color="warning"
+          sx={{ padding: "2px", verticalAlign: "top", fontSize: "medium" }}
+        />
+        <Typography
+          color="darkgoldenrod"
+          sx={{
+            fontFamily: "monospace",
+            fontSize: "0.8rem",
+            fontWeight: "bolder",
+          }}
+        >
+          プッシュから2か月以上経過しています
+        </Typography>
+      </>
+    );
+  }
+  return <></>;
 };
 
 export const TagSettingList = () => {
@@ -102,11 +164,17 @@ export const TagSettingList = () => {
                           </Button>
                         </TableCell>
                         <TableCell>
-                          <Typography
-                            sx={{ fontFamily: "monospace", fontSize: "0.8rem" }}
-                          >
-                            {settingItem.tags.join(", ")}
-                          </Typography>
+                          <Stack direction="row">
+                            <Typography
+                              sx={{
+                                fontFamily: "monospace",
+                                fontSize: "0.8rem",
+                              }}
+                            >
+                              {settingItem.tags.join(", ")}
+                            </Typography>
+                            {warningMessage(settingItem.pushed_at)}
+                          </Stack>
                         </TableCell>
                       </TableRow>
                     )}
