@@ -17,11 +17,11 @@ dependencies:
 
 devDependencies:
   '@solidjs/router':
-    specifier: ^0.13.1
-    version: 0.13.1(solid-js@1.8.16)
+    specifier: ^0.13.2
+    version: 0.13.2(solid-js@1.8.16)
   '@solidjs/testing-library':
     specifier: ^0.8.7
-    version: 0.8.7(@solidjs/router@0.13.1)(solid-js@1.8.16)
+    version: 0.8.7(@solidjs/router@0.13.2)(solid-js@1.8.16)
   '@testing-library/jest-dom':
     specifier: ^5.17.0
     version: 5.17.0
@@ -32,8 +32,8 @@ devDependencies:
     specifier: ^23.0.1
     version: 23.0.1
   typescript:
-    specifier: ^5.4.3
-    version: 5.4.3
+    specifier: ^5.4.5
+    version: 5.4.5
   vi-fetch:
     specifier: ^0.8.0
     version: 0.8.0
@@ -561,15 +561,15 @@ packages:
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
     dev: true
 
-  /@solidjs/router@0.13.1(solid-js@1.8.16):
-    resolution: {integrity: sha512-Rz5Lf0ssWMuN+Wm2GFO0vwZoO/KSwYFSuCUzWrRAvje5M0ZYZrMk5FZxuzdJT+zg8KuqWJQlRALks5E0r+FjAA==}
+  /@solidjs/router@0.13.2(solid-js@1.8.16):
+    resolution: {integrity: sha512-zPlQUXaaUMFzz70SNN8scITooBaJyvIJci3ilyHUBXr9+mzEJGCUSohRJx/VXKo9+p+HEBHY48GnChiPYfLsjg==}
     peerDependencies:
       solid-js: ^1.8.6
     dependencies:
       solid-js: 1.8.16
     dev: true
 
-  /@solidjs/testing-library@0.8.7(@solidjs/router@0.13.1)(solid-js@1.8.16):
+  /@solidjs/testing-library@0.8.7(@solidjs/router@0.13.2)(solid-js@1.8.16):
     resolution: {integrity: sha512-1Wl6Ewk+JyxQVzfG95KHa3H7hmCrdNcLigRgm0ih8fEBhbnVZakGoU2uizAWi5/8biwGwV9OQqW+bJO+nnJZ1Q==}
     engines: {node: '>= 14'}
     peerDependencies:
@@ -579,7 +579,7 @@ packages:
       '@solidjs/router':
         optional: true
     dependencies:
-      '@solidjs/router': 0.13.1(solid-js@1.8.16)
+      '@solidjs/router': 0.13.2(solid-js@1.8.16)
       '@testing-library/dom': 9.3.4
       solid-js: 1.8.16
     dev: true
@@ -2212,8 +2212,8 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /typescript@5.4.3:
-    resolution: {integrity: sha512-KrPd3PKaCLr78MalgiwJnA25Nm8HAmdwN3mYUYZgG/wizIo9EainNVQI9/yDavtVFRN2h3k8uf3GLHuhDMgEHg==}
+  /typescript@5.4.5:
+    resolution: {integrity: sha512-vcI4UpRgg81oIRUFwR0WSIHKt11nJ7SAVlYNIu+QpqeyXP+gpQJy/Z4+F0aGxSE4MqwjyXvW/TzgkLAx2AGHwQ==}
     engines: {node: '>=14.17'}
     hasBin: true
     dev: true
